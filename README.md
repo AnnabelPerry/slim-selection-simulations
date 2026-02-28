@@ -18,7 +18,7 @@ and Supplementary Section 2 of Akbari et al. 2026, Nature
         
         BaseDir="~/Downloads"
         ParameterDir="${BaseDir}/Akbari_et_al_2026_Nature_SLiMSimulations/parameter_files"
-        ParameterFile="MODEL1EXPERIMENTAL_ParameterFile.txt"
+        ParameterFile="Model1Experimental_ParameterFile.txt"
 		ScriptDir="${BaseDir}/Akbari_et_al_2026_Nature_SLiMSimulations/scripts"
         
         sbatch --array=1-100 ${ScriptDir}/simulate.sh \
