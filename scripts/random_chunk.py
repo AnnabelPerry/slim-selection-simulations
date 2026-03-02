@@ -6,16 +6,16 @@ import os
 import sys
 import time
 
-def get_random_CHROM():
-    dx = pd.read_csv('/n/data1/hms/genetics/reich/1000Genomes/ali/workspace/sel_paper/round4/simulations/genomic_element/non_overlapping_full_span_partition.tsv', sep='\t')
+def get_random_CHROM(input_directory):
+    dx = pd.read_csv(f"{input_directory}/non_overlapping_full_span_partition.tsv", sep='\t')
     chrom_size = dx.groupby('chrom').apply(lambda x: x['end'].max()-x['start'].min(), include_groups=False)
     p_chr = chrom_size/chrom_size.sum()
     CHROM = int(np.random.choice(p_chr.index.tolist(), p=p_chr.tolist()))
     return CHROM
     
-def random_chunk(CHROM, window):
-    dx = pd.read_csv('/n/data1/hms/genetics/reich/1000Genomes/ali/workspace/sel_paper/round4/simulations/genomic_element/non_overlapping_full_span_partition.tsv', sep='\t')
-    dr0 = pd.read_csv('/n/data1/hms/genetics/reich/1000Genomes/ali/workspace/sel_paper/round4/simulations/genomic_element/genetic_map_hg19_withX.txt.gz', sep=' ')
+def random_chunk(CHROM, window,input_directory):
+    dx = pd.read_csv(f"{input_directory}/non_overlapping_full_span_partition.tsv", sep='\t')
+    dr0 = pd.read_csv(f"{input_directory}/genetic_map_hg19_withX.txt.gz", sep=' ')
     
     l = []
     for i, x in dx.groupby('chrom'):
@@ -60,7 +60,8 @@ if __name__ == '__main__':
 
     parser.add_argument('-chrom', type=int, required=False)
     parser.add_argument('-windowsize', type=float, required=True)
-    parser.add_argument('-out', type=str, required=True)    
+    parser.add_argument('-out', type=str, required=True)
+    parser.add_argument('-input_directory', type=str, required=True)
 
     args = parser.parse_args()
     print(args)
@@ -69,7 +70,7 @@ if __name__ == '__main__':
     windowsize = args.windowsize
     out = args.out
     if chrom is None:
-        chrom = get_random_CHROM()
+        chrom = get_random_CHROM(input_directory)
         print('random chrom', chrom)
-    df = random_chunk(chrom, windowsize)
+    df = random_chunk(chrom, windowsize,input_directory)
     df.to_csv(f'{out}', sep='\t', index=None)
