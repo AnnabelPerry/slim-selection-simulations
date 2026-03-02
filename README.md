@@ -1,7 +1,7 @@
 # slim-selection-simulations
 SLiM simulations described in sections "Test of selection on single variants", 
 "Forward-in-time simulations of selection in the context of European history", 
-and Supplementary Section 2 of Akbari et al. 2026, Nature
+and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
 
 /scripts
 	Contains scripts for running simulations. Note that all necessary parts of
@@ -14,7 +14,7 @@ and Supplementary Section 2 of Akbari et al. 2026, Nature
         selected genomic segment.
         Below is an example commandline run (assuming the GitHub repository is
 		in your Downloads directory)
-        `````````````````````     Begin Code Block        `````````````````````` 
+        ```
         
         BaseDir="~/Downloads"
         ParameterDir="${BaseDir}/slim-selection-simulations/parameter_files"
@@ -25,7 +25,7 @@ and Supplementary Section 2 of Akbari et al. 2026, Nature
                             --ParameterFile ${ParameterFile} \
                             --ParameterDir ${ParameterDir}
                        
-        ``````````````````````     End Code Block        ``````````````````````` 
+        ``` 
         --ParameterDir
             Directory of ${ParameterFile}
             
@@ -321,10 +321,10 @@ and Supplementary Section 2 of Akbari et al. 2026, Nature
         with realistic genomic elements. The script will ensure that the ratio 
         of exons deviates by less than 50% from the chromosomal average, and 
         the spanning window size deviates by less than 10% from the specified 
-        window size.
+        window size. 
 
         `````````````````````     Begin Code Block        `````````````````````` 
-        python random_chunk.py -chrom 1 -windowsize 10e6 -out output_path.tsv 
+        python random_chunk.py -chrom 1 -windowsize 10e6 -out output_path.tsv -in "~/Downloads/slim-selection-simulations/inputs"
         ``````````````````````     End Code Block        ```````````````````````  
         -chrom
             Optional. If not specified, a random chromosome is selected.
@@ -332,6 +332,15 @@ and Supplementary Section 2 of Akbari et al. 2026, Nature
             Required. Should be an integer or float.
         -out
             Required. Specifies the output file path.
+		-in
+			This should be the full path to two input files:
+				non_overlapping_full_span_partition.tsv
+					Tab-separated file with the below header:
+						chrom	start	end	size	type
+
+			If you want to exactly reproduce the results of Akbari et al. 2026,
+			set this variable as the full path to the "inputs" sub-directory
+			of slim-selection-simulations/
 	
     subset_recombination_map.py
         Note this script is run as part of simulate.sh. Subsets recombination rate 
@@ -381,11 +390,19 @@ and Supplementary Section 2 of Akbari et al. 2026, Nature
         --InDir
     	    Directory of ${FullRateMapName}
 
+/inputs
+	Data files required for input into simulations
+		non_overlapping_full_span_partition.tsv
+			Tab-separated file of UCSC Genome Browser (GENCODE_V47lift37 
+			annotations), preprocessed according to the methods described 
+			in SUPPLEMENTARY INFORMATION SECTION 2 > SIMULATION OF EUROPEAN 
+			DEMOGRAPHIC HISTORY > Mutations
+		
 /parameter_files
 	Files to be inputted into simulate.sh in order to run the 3 models described in
 	the main text sections "Test of selection on single variants" and 
 	"Forward-in-time simulations of selection in the context of European history" 
-	as well as Supplementary Section 2. 
+	as well as SUPPLEMENTARY INFORMATION SECTION 2. 
 	To use any of these parameter files, you will need to adjust the directories
 	named in the file to the actual directories for the indicated variable
 
@@ -422,8 +439,8 @@ and Supplementary Section 2 of Akbari et al. 2026, Nature
 		with polygenic directional selection
 
 	Parameter files required to reproduce the experiments described in sub-
-	section "Power analysis of GLMM and GLM and co-linearity" of Supplementary 
-	Materials section 2 are named in the below format:
+	section "Power analysis of GLMM and GLM and co-linearity" of SUPPLEMENTARY 
+	INFORMATION SECTION 2 are named in the below format:
 	
 		Window100Kbp_S${PositiveCoeff}_ShiftGen_${ShiftGen}.txt
 		
