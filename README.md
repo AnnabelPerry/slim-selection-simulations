@@ -4,16 +4,20 @@ SLiM simulations described in sections "Test of selection on single variants",
 and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
 
 /scripts
+
 	Contains scripts for running simulations. Note that all necessary parts of
 	the simulation are run as part of the bash script simulate.sh. All other
 	scripts in this sub-directory are run as part of simulate.sh.
 	
 	simulate.sh
+	
         Runs simulation ( simulate.slim ) with gene-annotation map and
         Eyre Walker selection coefficient-trait effect mapping, on a randomly-
         selected genomic segment.
+		
         Below is an example commandline run (assuming the GitHub repository is
 		in your Downloads directory)
+		
         ```
         
         BaseDir="~/Downloads"
@@ -26,6 +30,7 @@ and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
                             --ParameterDir ${ParameterDir}
                        
         ``` 
+		
         --ParameterDir
             Directory of ${ParameterFile}
             
@@ -43,7 +48,9 @@ and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
 	simulate.slim
         SLiM simulation code. An example run is below, but note this simulation
         is run as part of simulate.sh
-        `````````````````````     Begin Code Block        `````````````````````` 
+		
+        ```
+		
         InDir="~/Downloads/slim-selection-simulations/inputs"
         
         seed=1
@@ -108,7 +115,8 @@ and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
             -d OutDir="'${OutDir}'" \
             ${ScriptDir}/simulate.slim
 
-        ``````````````````````     End Code Block        ``````````````````````` 
+        ```
+		
         Inputs:
         --seed
             Specify the random number generator seed
@@ -323,9 +331,12 @@ and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
         the spanning window size deviates by less than 10% from the specified 
         window size. 
 
-        `````````````````````     Begin Code Block        `````````````````````` 
+        ```
+		
         python random_chunk.py -chrom 1 -windowsize 10e6 -out output_path.tsv -in "~/Downloads/slim-selection-simulations/inputs"
-        ``````````````````````     End Code Block        ```````````````````````  
+        
+		```
+		
         -chrom
             Optional. If not specified, a random chromosome is selected.
         -windowsize
@@ -334,9 +345,16 @@ and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
             Required. Specifies the output file path.
 		-in
 			This should be the full path to two input files:
+			
 				non_overlapping_full_span_partition.tsv
+				
 					Tab-separated file with the below header:
+					
 						chrom	start	end	size	type
+						
+				genetic_map_hg19_withX.txt.gz
+				
+					recombination rate map
 
 			If you want to exactly reproduce the results of Akbari et al. 2026,
 			set this variable as the full path to the "inputs" sub-directory
@@ -347,7 +365,8 @@ and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
 		map to the genomic window represented by an annotation map which was ALREADY 
 		subetted random_chunk.py.
         
-        `````````````````````     Begin Code Block        `````````````````````` 
+        ```
+		
         BaseDir="~/Downloads/slim-selection-simulations"
         
         CHR=21
@@ -369,7 +388,9 @@ and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
             --replicate_dir "$replicate_dir" \
             --InDir "$InDir"
         conda deactivate
-        ``````````````````````     End Code Block        ``````````````````````` 
+		
+        ```
+		
         --CHR
             Chromosome number
             
@@ -392,11 +413,18 @@ and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
 
 /inputs
 	Data files required for input into simulations
+	
 		non_overlapping_full_span_partition.tsv
+		
 			Tab-separated file of UCSC Genome Browser (GENCODE_V47lift37 
 			annotations), preprocessed according to the methods described 
 			in SUPPLEMENTARY INFORMATION SECTION 2 > SIMULATION OF EUROPEAN 
 			DEMOGRAPHIC HISTORY > Mutations
+			
+		genetic_map_hg19_withX.txt.gz
+			GRCh37/hg19 LD-based recombination rate map. Downloaded from 
+			https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/
+
 		
 /parameter_files
 	Files to be inputted into simulate.sh in order to run the 3 models described in
