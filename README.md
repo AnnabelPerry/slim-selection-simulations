@@ -405,6 +405,14 @@ and Supplementary Section 2 of Akbari et al. 2026, Nature
 		Parameter file which, when inputted to simulate.sh, runs Model 2.1
 		with directional selection on a single standing variant
 
+	Model2.2Control_ParameterFile.txt
+		Parameter file which, when inputted to simulate.sh, runs Model 2.2
+		without directional selection
+		
+	Model2.2Experimental_ParameterFile.txt
+		Parameter file which, when inputted to simulate.sh, runs Model 2.2
+		with directional selection on a single de novo variant
+
 	Model3Control_ParameterFile.txt
 		Parameter file which, when inputted to simulate.sh, runs Model 3
 		without directional selection
