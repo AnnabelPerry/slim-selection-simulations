@@ -63,7 +63,9 @@ fi
 i=$SLURM_ARRAY_TASK_ID
 
 # Generate random seed and naming number
-seed=$((RANDOM * 32768 + RANDOM))
+if [ -z "${seed+x}" ]; then
+    seed=$((RANDOM * 32768 + RANDOM))
+fi
 NamingNumber=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 20 | head -n 1)
 CHR=$(( RANDOM % 22 + 1 ))
 
