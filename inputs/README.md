@@ -6,3 +6,6 @@ https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg19_wi
 
 `non_overlapping_full_span_partition.tsv` Tab-separated file of UCSC Genome Browser (GENCODE_V47lift37 annotations), preprocessed according 
 to the methods described in SUPPLEMENTARY INFORMATION SECTION 2 > SIMULATION OF EUROPEAN DEMOGRAPHIC HISTORY > Mutations
+
+`PopulationSizes.csv` File describing the sizes of each sub-population. See the description of the --PopulationSizesName flag in 
+~/slim-selection-simulations/scripts for more information.
