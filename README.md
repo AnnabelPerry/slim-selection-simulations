@@ -3,7 +3,7 @@ SLiM simulations described in sections "Test of selection on single variants",
 "Forward-in-time simulations of selection in the context of European history", 
 and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
 
-/scripts
+`/scripts`
 
 	Contains scripts for running simulations. Note that all necessary parts of
 	the simulation are run as part of the bash script simulate.sh. All other
