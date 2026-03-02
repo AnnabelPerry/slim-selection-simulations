@@ -392,3 +392,7 @@ and Supplementary Section 2 of Akbari et al. 2026, Nature
 	Model1Control_ParameterFile.txt
 		Parameter file which, when inserted as input to simulate.sh, runs Model 1
 		without directional selection
+		
+	Model1Experimental_ParameterFile.txt
+		Parameter file which, when inserted as input to simulate.sh, runs Model 1
+		with directional selection (See 
