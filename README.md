@@ -18,7 +18,7 @@ and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
         Below is an example commandline run (assuming the GitHub repository is
 		in your Downloads directory)
 		
-        ```
+```
         
         BaseDir="~/Downloads"
         ParameterDir="${BaseDir}/slim-selection-simulations/parameter_files"
@@ -29,7 +29,7 @@ and SUPPLEMENTARY INFORMATION SECTION 2 of Akbari et al. 2026, Nature
                             --ParameterFile ${ParameterFile} \
                             --ParameterDir ${ParameterDir}
                        
-        ``` 
+``` 
 		
         --ParameterDir
             Directory of ${ParameterFile}
