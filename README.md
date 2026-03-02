@@ -390,9 +390,17 @@ and Supplementary Section 2 of Akbari et al. 2026, Nature
 	named in the file to the actual directories for the indicated variable
 
 	Model1Control_ParameterFile.txt
-		Parameter file which, when inserted as input to simulate.sh, runs Model 1
+		Parameter file which, when inputted to simulate.sh, runs Model 1
 		without directional selection
 		
 	Model1Experimental_ParameterFile.txt
-		Parameter file which, when inserted as input to simulate.sh, runs Model 1
-		with directional selection (See 
+		Parameter file which, when inputted to simulate.sh, runs Model 1
+		with polygenic directional selection
+
+	Model2.1Control_ParameterFile.txt
+		Parameter file which, when inputted to simulate.sh, runs Model 2.1
+		without directional selection
+		
+	Model2.1Experimental_ParameterFile.txt
+		Parameter file which, when inputted to simulate.sh, runs Model 2.1
+		with directional selection on a single standing variant
