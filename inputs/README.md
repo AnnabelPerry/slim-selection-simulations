@@ -9,3 +9,5 @@ to the methods described in SUPPLEMENTARY INFORMATION SECTION 2 > SIMULATION OF 
 
 `PopulationSizes.csv` File describing the sizes of each sub-population. See the description of the --PopulationSizesName flag in 
 ~/slim-selection-simulations/scripts for more information.
+
+`Chr*Recombination.txt` Per-chromosome recombination files extracted from genetic_map_hg19_withX.txt.gz
