@@ -26,4 +26,3 @@ ShiftGen:	51300
 StandardDeviationOfFitnessFunction:	10
 TimeTransectSampleSize:	100
 heritability:	0.5
-FullBMapName:	bkgd_hg19.bed
