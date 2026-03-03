@@ -69,6 +69,7 @@ if __name__ == '__main__':
     chrom = args.chrom
     windowsize = args.windowsize
     out = args.out
+    input_directory=args.input_directory
     if chrom is None:
         chrom = get_random_CHROM(input_directory)
         print('random chrom', chrom)
