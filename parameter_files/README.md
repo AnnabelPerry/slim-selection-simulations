@@ -2,6 +2,8 @@ This sub-directory contains files to be inputted into simulate.sh in order to ru
 and "Forward-in-time simulations of selection in the context of European history" as well as SUPPLEMENTARY INFORMATION SECTION 2. To use any of
 these parameter files, you will need to adjust the directories named in the file to the actual directories for the indicated variable
 
+`Test_ParameterFile.txt` Parameter file with minimal parameter values to check whether code is running properly
+
 `Model1Control_ParameterFile.txt` Parameter file which, when inputted to simulate.sh, runs Model 1 without directional selection
 		
 `Model1Experimental_ParameterFile.txt` Parameter file which, when inputted to simulate.sh, runs Model 1 with polygenic directional selection
