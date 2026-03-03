@@ -109,8 +109,6 @@ case "$key" in
 esac
 cat ${ParameterDir}/${ParameterFile} >> ${ReplicateParameter}
 # Create annotation map and recombination map
-
-source activate SelectionSimulations
 AnnotationName="${replicate_dir}/Annotation_NamingNumber${NamingNumber}.tab"
 FullRateMapName="Chr${CHR}Recombination.txt"
 RateMapName="Recombination_NamingNumber${NamingNumber}.tab"
